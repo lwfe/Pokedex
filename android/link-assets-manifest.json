@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/FiraCode-Regular.ttf",
+      "sha1": "85e2f3d6fb86f43adccd266a8ad0675978a01975"
+    },
+    {
+      "path": "assets/fonts/FiraCode-SemiBold.ttf",
+      "sha1": "32a9dec683dcd99b4446b7cd1b1907520d13e748"
+    }
+  ]
+}
