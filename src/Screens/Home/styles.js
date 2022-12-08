@@ -14,3 +14,36 @@ export const Title = styled.Text`
   font-size: 24px;
   padding: 15px 0;
 `;
+
+export const ScrollView = styled.ScrollView`
+  width: 80%;
+  margin: 8px 0;
+`;
+
+export const View = styled.View`
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const Card = styled.TouchableOpacity`
+  background: #dfe4ea;
+  margin: 5px 0;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: 1px solid #263238;
+`;
+
+export const Image = styled.Image`
+  width: 150px;
+  height: 150px;
+`;
+
+export const PokeName = styled.Text`
+  font-family: "FiraCode-Regular";
+  font-size: 16px;
+`;
