@@ -45,5 +45,15 @@ export const Image = styled.Image`
 
 export const PokeName = styled.Text`
   font-family: "FiraCode-Regular";
-  font-size: 16px;
+  font-size: 12px;
+  max-width: 90%;
+`;
+
+export const Input = styled.TextInput`
+  height: 40px;
+  width: 80%;
+  border: 1px solid #263238;
+  border-radius: 4px;
+  color: #263238;
+  text-align: center;
 `;

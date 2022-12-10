@@ -8,10 +8,12 @@ import {
   Card,
   Image,
   PokeName,
+  Input,
 } from "./styles";
 
 export default function Home() {
   const [pokemons, setPokemons] = useState([]);
+  const [search, onChangeSearch] = useState("");
 
   function fetchPokemons() {
     fetch("https://pokeapi.co/api/v2/pokemon")
@@ -28,7 +30,11 @@ export default function Home() {
     <Container>
       <StatusBar style="dark" />
       <Title>Pokedex</Title>
-
+      <Input
+        value={search}
+        onChangeText={onChangeSearch}
+        placeholder="Search"
+      />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View>
           {pokemons.map((pokemons, index) => {
