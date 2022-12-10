@@ -33,22 +33,27 @@ export default function Home() {
       <Input
         value={search}
         onChangeText={onChangeSearch}
-        placeholder="Search"
+        placeholderTextColor="#263238"
+        placeholder="Procurar pokemon"
       />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View>
-          {pokemons.map((pokemons, index) => {
-            return (
-              <Card key={index}>
-                <Image
-                  source={{
-                    uri: `https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/${pokemons.name}.png`,
-                  }}
-                />
-                <PokeName>{pokemons.name}</PokeName>
-              </Card>
-            );
-          })}
+          {pokemons
+            .filter((pokemon) =>
+              pokemon.name.toLowerCase().includes(search.toLowerCase())
+            )
+            .map((pokemons, index) => {
+              return (
+                <Card key={index}>
+                  <Image
+                    source={{
+                      uri: `https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/${pokemons.name}.png`,
+                    }}
+                  />
+                  <PokeName>{pokemons.name}</PokeName>
+                </Card>
+              );
+            })}
         </View>
       </ScrollView>
     </Container>
