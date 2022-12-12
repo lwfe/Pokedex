@@ -54,7 +54,9 @@ export default function Home({ navigation }) {
                 >
                   <Image
                     source={{
-                      uri: `https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/${pokemons.name}.png`,
+                      uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
+                        index + 1
+                      }.png`,
                     }}
                   />
                   <PokeName>{pokemons.name}</PokeName>

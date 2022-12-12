@@ -25,7 +25,22 @@ export const Info = styled.View`
   justify-content: space-between;
 `;
 
-export const Basic = styled.View``;
+export const Basic = styled.View`
+  align-items: flex-start;
+  justify-content: flex-start;
+`;
+
+export const BackButton = styled.TouchableOpacity`
+  background: #fff;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid #263238;
+  margin: 10px 0;
+`;
+export const Icon = styled.Image`
+  width: 30px;
+  height: 30px;
+`;
 
 export const SubTitle = styled.Text`
   font-family: "FiraCode-Regular"
@@ -34,10 +49,15 @@ export const SubTitle = styled.Text`
 
 export const Title = styled.Text`
   font-family: "FiraCode-SemiBold";
-  font-size: 24px;
+  font-size: 22px;
 `;
 
 export const PokeImg = styled.Image`
   width: 200px;
   height: 200px;
+`;
+
+export const TypesView = styled.View`
+  flex-direction: row;
+  margin-top: 15px;
 `;
