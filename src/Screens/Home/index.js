@@ -11,7 +11,7 @@ import {
   Input,
 } from "./styles";
 
-export default function Home() {
+export default function Home({ navigation }) {
   const [pokemons, setPokemons] = useState([]);
   const [search, onChangeSearch] = useState("");
 
@@ -44,7 +44,14 @@ export default function Home() {
             )
             .map((pokemons, index) => {
               return (
-                <Card key={index}>
+                <Card
+                  key={index}
+                  onPress={() =>
+                    navigation.navigate("PokeInfo", {
+                      pokeurl: pokemons.url,
+                    })
+                  }
+                >
                   <Image
                     source={{
                       uri: `https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/${pokemons.name}.png`,
