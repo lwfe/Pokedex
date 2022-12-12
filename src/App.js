@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
 
 import Home from "./Screens/Home";
-import PokeInfo from "./Screens/PokeInfo";
+import Details from "./Screens/Details";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,15 +20,15 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"
           component={Home}
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="PokeInfo"
-          component={PokeInfo}
+          name="Details"
+          component={Details}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

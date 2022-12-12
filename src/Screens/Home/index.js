@@ -46,11 +46,11 @@ export default function Home({ navigation }) {
               return (
                 <Card
                   key={index}
-                  onPress={() =>
-                    navigation.navigate("PokeInfo", {
-                      pokeurl: pokemons.url,
-                    })
-                  }
+                  onPress={() => {
+                    navigation.navigate("Details", {
+                      url: pokemons.url,
+                    });
+                  }}
                 >
                   <Image
                     source={{
