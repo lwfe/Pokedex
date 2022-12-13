@@ -3,9 +3,13 @@ import { getStatusBarHeight } from "react-native-status-bar-height";
 
 const statusbarHeight = getStatusBarHeight();
 
-export const Container = styled.View`
+export const Scroll = styled.View`
   flex: 1;
   align-items: center;
+`;
+
+export const Container = styled.ScrollView`
+  flex: 1;
 `;
 
 export const Header = styled.View`
@@ -60,4 +64,85 @@ export const PokeImg = styled.Image`
 export const TypesView = styled.View`
   flex-direction: row;
   margin-top: 15px;
+`;
+
+export const Main = styled.View`
+  width: 80%;
+  align-items: center;
+  margin-bottom: 30px;
+`;
+export const FavButton = styled.TouchableOpacity`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+`;
+export const FavIcon = styled.Image`
+  margin: 0 3px;
+`;
+
+export const DetailsView = styled.View`
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+`;
+
+export const DetailGroup = styled.View`
+  align-items: center;
+  justify-content: center;
+`;
+export const DetailsText = styled.Text`
+  font-family: "FiraCode-Regular";
+  font-size: 16px;
+`;
+export const DetailsTitle = styled.Text`
+  font-family: "FiraCode-SemiBold";
+  font-size: 20px;
+`;
+
+export const StatsView = styled.View`
+  width: 80%;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
+export const StatBars = styled.View`
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const StatBar = styled.View`
+  width: 100%;
+  margin: 8px 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+`;
+
+export const StatBarsText = styled.Text`
+  width: 25%;
+  font-family: "FiraCode-Regular";
+  font-size: 14px;
+`;
+
+export const StatBarsSecondaryText = styled.Text`
+  width: 10%;
+  font-family: "FiraCode-Regular";
+  font-size: 14px;
+  text-align: center;
+`;
+
+export const ProgressBarWrapper = styled.View`
+  width: 65%;
+  height: 4px;
+  background-color: #dfe4ea;
+  border-radius: 4px;
+`;
+export const ProgressBarProgress = styled.View`
+  height: 4px;
+  background-color: green;
+  border-radius: 4px;
+  max-width: 100%;
 `;
