@@ -104,8 +104,8 @@ export default function Details({ route, navigation }) {
           <Title>Stats</Title>
           <StatBars>
             {stats.map((stat, index) => (
-              <StatBar>
-                <StatBarsText key={index}>{stat.stat.name}</StatBarsText>
+              <StatBar key={index * 10}>
+                <StatBarsText>{stat.stat.name}</StatBarsText>
                 <ProgressBarWrapper>
                   <ProgressBarProgress
                     style={{
@@ -114,7 +114,9 @@ export default function Details({ route, navigation }) {
                     }}
                   />
                 </ProgressBarWrapper>
-                <StatBarsSecondaryText>{stat.base_stat}</StatBarsSecondaryText>
+                <StatBarsSecondaryText key={index * 100}>
+                  {stat.base_stat}
+                </StatBarsSecondaryText>
               </StatBar>
             ))}
           </StatBars>

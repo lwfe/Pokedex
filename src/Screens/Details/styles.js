@@ -36,10 +36,10 @@ export const Basic = styled.View`
 
 export const BackButton = styled.TouchableOpacity`
   background: #fff;
-  padding: 0 12px;
+  padding: 2px 12px;
   border-radius: 8px;
   border: 1px solid #263238;
-  margin: 10px 0;
+  margin: 5px 0;
 `;
 export const Icon = styled.Image`
   width: 30px;

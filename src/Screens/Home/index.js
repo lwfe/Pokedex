@@ -14,11 +14,15 @@ import {
 export default function Home({ navigation }) {
   const [pokemons, setPokemons] = useState([]);
   const [search, onChangeSearch] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   function fetchPokemons() {
     fetch("https://pokeapi.co/api/v2/pokemon")
       .then((response) => response.json())
-      .then((data) => setPokemons(data.results))
+      .then((data) => {
+        setPokemons(data.results);
+        setIsLoading(false);
+      })
       .catch((err) => console.log(err));
   }
 
@@ -26,7 +30,9 @@ export default function Home({ navigation }) {
     fetchPokemons();
   }, []);
 
-  return (
+  return isLoading ? (
+    <></>
+  ) : (
     <Container>
       <StatusBar style="dark" />
       <Title>Pokedex</Title>
@@ -43,6 +49,8 @@ export default function Home({ navigation }) {
               pokemon.name.toLowerCase().includes(search.toLowerCase())
             )
             .map((pokemons, index) => {
+              let url = pokemons.url.split("/");
+              let id = url[url.length - 2];
               return (
                 <Card
                   key={index}
@@ -54,9 +62,7 @@ export default function Home({ navigation }) {
                 >
                   <Image
                     source={{
-                      uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
-                        index + 1
-                      }.png`,
+                      uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
                     }}
                   />
                   <PokeName>{pokemons.name}</PokeName>

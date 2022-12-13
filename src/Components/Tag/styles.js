@@ -5,6 +5,7 @@ export const View = styled.View`
   margin: 0 3px;
   padding: 3px;
   align-items: center;
+  border-radius: 2px;
 `;
 export const Type = styled.Text`
   font-family: "FiraCode-SemiBold";
