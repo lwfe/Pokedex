@@ -13,9 +13,3 @@ export const Type = styled.Text`
   padding: 3px;
   color: #fff;
 `;
-
-export const Icon = styled.Image`
-  width: 25px;
-  height: 25px;
-  margin-left: 3px;
-`;

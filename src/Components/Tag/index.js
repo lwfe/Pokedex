@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Type, Icon } from "./styles";
+import { View, Type } from "./styles";
 import { colors } from "../../../assets/colors";
 
 export default function Tag({ type }) {

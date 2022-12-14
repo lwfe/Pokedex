@@ -3,27 +3,63 @@ import { StatusBar } from "expo-status-bar";
 import {
   Container,
   Title,
-  ScrollView,
   View,
   Card,
   Image,
   PokeName,
   Input,
+  SearchView,
+  PokeList,
 } from "./styles";
 
 export default function Home({ navigation }) {
   const [pokemons, setPokemons] = useState([]);
-  const [search, onChangeSearch] = useState("");
+  // const [search, onChangeSearch] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [nextUrl, setNextUrl] = useState("");
 
   function fetchPokemons() {
     fetch("https://pokeapi.co/api/v2/pokemon")
       .then((response) => response.json())
       .then((data) => {
+        setNextUrl(data.next);
         setPokemons(data.results);
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
+  }
+
+  function renderPokemons({ item }) {
+    let url = item.url.split("/");
+    let id = url[url.length - 2];
+    return (
+      <Card
+        onPress={() => {
+          navigation.navigate("Details", {
+            url: item.url,
+          });
+        }}
+      >
+        <Image
+          source={{
+            uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
+          }}
+        />
+        <PokeName>{item.name}</PokeName>
+      </Card>
+    );
+  }
+
+  function renderNextUrl() {
+    fetch(nextUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        setPokemons(pokemons.concat(data.results));
+        setNextUrl(data.next);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   useEffect(() => {
@@ -36,41 +72,25 @@ export default function Home({ navigation }) {
     <Container>
       <StatusBar style="dark" />
       <Title>Pokedex</Title>
-      <Input
-        value={search}
-        onChangeText={onChangeSearch}
-        placeholderTextColor="#263238"
-        placeholder="Procurar pokemon"
-      />
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View>
-          {pokemons
-            .filter((pokemon) =>
-              pokemon.name.toLowerCase().includes(search.toLowerCase())
-            )
-            .map((pokemons, index) => {
-              let url = pokemons.url.split("/");
-              let id = url[url.length - 2];
-              return (
-                <Card
-                  key={index}
-                  onPress={() => {
-                    navigation.navigate("Details", {
-                      url: pokemons.url,
-                    });
-                  }}
-                >
-                  <Image
-                    source={{
-                      uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
-                    }}
-                  />
-                  <PokeName>{pokemons.name}</PokeName>
-                </Card>
-              );
-            })}
-        </View>
-      </ScrollView>
+      {/* <SearchView>
+        <Input
+          value={search}
+          onChangeText={onChangeSearch}
+          placeholderTextColor="#263238"
+          placeholder="Procurar pokemon"
+        />
+      </SearchView> */}
+      <View contentContainerStyle={{ flex: 1 }}>
+        <PokeList
+          data={pokemons}
+          columnWrapperStyle={{ justifyContent: "space-between" }}
+          renderItem={renderPokemons}
+          numColumns={2}
+          keyExtractor={(item) => item.name}
+          onEndReached={renderNextUrl}
+          onEndReachedThreshold={0.5}
+        />
+      </View>
     </Container>
   );
 }

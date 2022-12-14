@@ -15,17 +15,12 @@ export const Title = styled.Text`
   padding: 15px 0;
 `;
 
-export const ScrollView = styled.ScrollView`
-  width: 80%;
-  margin: 8px 0;
-`;
-
 export const View = styled.View`
   flex: 1;
-  flex-direction: row;
-  flex-wrap: wrap;
+  width: 80%;
+  margin: 8px 0;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 export const Card = styled.TouchableOpacity`
@@ -51,9 +46,21 @@ export const PokeName = styled.Text`
 
 export const Input = styled.TextInput`
   height: 40px;
-  width: 80%;
-  border: 1px solid #263238;
-  border-radius: 4px;
+  width: 100%;
   color: #263238;
   text-align: center;
+  z-index: 0;
+`;
+
+export const SearchView = styled.View`
+  width: 80%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #263238;
+  border-radius: 4px;
+`;
+
+export const PokeList = styled.FlatList`
+  width: 100%;
 `;
