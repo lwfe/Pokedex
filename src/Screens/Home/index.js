@@ -84,8 +84,9 @@ export default function Home({ navigation }) {
       </SearchView> */}
       <View contentContainerStyle={{ flex: 1 }}>
         <PokeList
+          showVerticall
           data={pokemons}
-          columnWrapperStyle={{ justifyContent: "space-between" }}
+          columnWrapperStyle={{ justifyContent: "space-evenly" }}
           renderItem={renderPokemons}
           numColumns={2}
           keyExtractor={(item) => item.name}
@@ -93,6 +94,7 @@ export default function Home({ navigation }) {
           onEndReachedThreshold={0.5}
           ListFooterComponent={() => <ActivityIndicator />}
           ListFooterComponentStyle={{ padding: 20 }}
+          showsVerticalScrollIndicator={false}
         />
       </View>
     </Container>
