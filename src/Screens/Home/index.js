@@ -10,7 +10,9 @@ import {
   Input,
   SearchView,
   PokeList,
+  AIview,
 } from "./styles";
+import { ActivityIndicator } from "react-native";
 
 export default function Home({ navigation }) {
   const [pokemons, setPokemons] = useState([]);
@@ -89,6 +91,8 @@ export default function Home({ navigation }) {
           keyExtractor={(item) => item.name}
           onEndReached={renderNextUrl}
           onEndReachedThreshold={0.5}
+          ListFooterComponent={() => <ActivityIndicator />}
+          ListFooterComponentStyle={{ padding: 20 }}
         />
       </View>
     </Container>

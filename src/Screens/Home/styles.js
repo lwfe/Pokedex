@@ -1,7 +1,14 @@
 import styled from "styled-components/native";
 import { getStatusBarHeight } from "react-native-status-bar-height";
+import { Dimensions } from "react-native";
 
+const windowWidth = Dimensions.get("window").width;
 const statusbarHeight = getStatusBarHeight();
+
+function responsibleImage(width) {
+  let eightypw = width * 0.8;
+  let eightypf = eightypw * 0.8;
+}
 
 export const Container = styled.SafeAreaView`
   flex: 1;
@@ -34,8 +41,8 @@ export const Card = styled.TouchableOpacity`
 `;
 
 export const Image = styled.Image`
-  width: 150px;
-  height: 150px;
+  width: ${(windowWidth * 0.64) / 2}px;
+  height: ${(windowWidth * 0.64) / 2}px;
 `;
 
 export const PokeName = styled.Text`
@@ -63,4 +70,8 @@ export const SearchView = styled.View`
 
 export const PokeList = styled.FlatList`
   width: 100%;
+`;
+
+export const AIview = styled.View`
+  flex: 1;
 `;
